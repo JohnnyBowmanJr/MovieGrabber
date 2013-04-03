@@ -12,12 +12,16 @@ class MovieGrabberTest < Test::Unit::TestCase
   end
 
   def test_get_film_info_method
-    Movie.get_film_info("jaws")
-
+    movie = Movie.get_film_info("jaws")
+    assert_equal "Jaws", movie.title
     # Don't forget to create your movies table first, using sqlite3...
     movies = @@db.execute("select * from movies")
-    movies.length.should == 1
-    movies.first[1].should == "Jaws" # Note, this can change if you want/need
+    assert_equal 1, movies.length 
+    #movies.length.should == 1
+    
+    #movies.first[1].should == "Jaws" 
+    assert_equal "Jaws", movies.first["Jaws"]
+    # Note, this can change if you want/need
     # Add other parts to your test here...
   end
 
