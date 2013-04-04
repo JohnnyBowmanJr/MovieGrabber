@@ -1,32 +1,66 @@
 # Movies Homework
 
-We're going to make a little program that grabs information about films and store it in the database.
+We're going to make a Sinatra web application that will act as an online film search engine.
 
 # Install
 
-1. Fork this repo, and git clone your own copy as normal.
-2. Install the following gems:
+1. Fork this repo
+2. git clone your own copy as normal.
+3. Add a remote called dmgarland
+```git remote add dmgarland https://github.com/dmgarland/MovieGrabber.git```
+4. cd into your project folder
+```cd ~/projects/MovieGrabber```
+5. Fetch down my changes
+```git fetch dmgarland```
+6. Create a remote tracking branch for my sinatra_flava branch
+```git branch --track sinatra_flava dmgarland/sinatra_flava```
+7. Make sure you are on the right branch
+```git checkout sinatra_flava```
+8. Install the following gems:
 ```gem install httparty```
 ```gem install json```
-3. Run the test using 
-```ruby test/test.rb```
+9. Run the server:
+```ruby movie_server.rb```
 
-You should get a binding.pry prompt with film information for "Jaws". We're going to extend this program to make a database.
+You should see Sinatra running on port 4567.
 
 # TODO
 
-* Open the test/test.db database using sqlite 3:
+* Add code to the views/layout.erb so that we have a valid HTML website.
+  * I want a header, with your website title and a search box.
+  * I want a welcome page, so that when I visit '/' I see a nice welcome message and some instructions on how to use the application.
+  * I want to type the name of a film into the search box, and when I press 'Search', I see a picture of the film, and information about the Movie.
+* Add HTML / CSS to make your website look pretty. 
 
-```sqlite3 test/test.db```
+# DEPLOYMENT
 
-* Create a table called movies that stores some of the data that you are interested in.
-* Update the Movie class, so that it has attr_accessors for each column in the movies table.
-* Finish the get_film_info method, so that it takes information out of the movie_info hash and stores it in the database.
-* Update your test, so that you can make sure that the movie is stored correctly.
-* If you get this far, try the following extensions:
-  * How could we make our program grab more than one movie?
-  * How could we change our database design to store actors in a seperate table? What other information is not in 3NF?
-  * Add a method to print all the movies in the database
-  * Add a method to search for all the movies in the database.
-  * Amend the program any way you see fit.
+* Login to Heroku by typing:
+
+```
+    heroku login
+```
+
+* Create an app on Heroku using:
+
+```
+    heroku create
+```
+
+* Make a note of the URL it gives you. Will be something like 
+http://cool-bananas-922.herokuapp.com. 
+* Push the example app from your cloned repository to your heroku repository:
+
+```
+    git push heroku master
+```    
+* Cut+paste your heroku URL into your favourite web browser. You should see 
+the example app.  
+
+* Then its burritos and beer time!
+
+# EXTENSIONS
+
+* Change the application so that it validates that I type in the name of a film
+* Change the application so that it works if the IMDB is down, or doesn't find the film, whereupon we send a 404 not found
+* Change the application so that we persist the information to a SQLite3 database. If the search is found in the local database, we want to use that information, instead of making unnecessary calls to IMDB.
 * When you're done, send me a pull request

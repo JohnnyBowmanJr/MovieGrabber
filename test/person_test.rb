@@ -24,6 +24,6 @@ class MovieGrabberTest < Test:Unit::TestCase
   end
 
   def teardown
-    # @@db.close
+    @@db.close
   end
 end
