@@ -42,7 +42,7 @@ class Movie
     sql = "insert into movies (title, year, rating, genre, director, actors, 
       plot, poster_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
 
-    db.execute(sql, title, year, rating, genre, director, actors.join(","), plot, poster_url)
+    db.execute(sql, title, year, rating, genre, director, actors, plot, poster_url)
   end
 
 end

@@ -1,7 +1,20 @@
 <h1><%= film.title %></h1>
 <br />
-<div id="result-container">
-	<%= film.plot %><br /><br />
-	Director: <%= film.director %>
-	Year: <%= film.year %><br /><br />
+<div id="container">
+	<div id="left">
+		<img src="<%= film.poster_url %>" />
+	</div>
+	<div id="right">
+		<%= film.plot %><br /><br />
+		<span>Director: </span>
+		<%= film.director %><br /><br />
+		<span>Year:</span>
+		<%= film.year %><br /><br />
+		<span>Rating:</span>
+		<%= film.rating %><br /><br />
+		<span>Genre:</span>
+		<%= film.genre %><br /><br />
+		<span>Actors:</span>
+		<%= film.actors %><br /><br />
+	</div>
 </div>

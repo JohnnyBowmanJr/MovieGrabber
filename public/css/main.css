@@ -46,6 +46,7 @@ table {
 #header {
 	background-color: rgb(150,150,150);
 	text-align: center;
+	font-weight:bold;
 	padding: 15px;
 }
 
@@ -54,9 +55,20 @@ table {
 	text-align: center;
 }
 
-#result-container {
+#container {
 	text-align: left;
-	width: 500px;
+	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
 }
+
+#container span {
+	font-weight:bold;
+}
+
+#left {
+	float: left;
+	margin-right: 30px;
+}
+
+
